@@ -7,7 +7,7 @@ replicaCount: 1
 ## Image Info
 ## ref: https://hub.docker.com/r/confluentinc/cp-kafka/
 image: confluentinc/cp-enterprise-control-center
-imageTag: 5.2.0
+imageTag: 5.3.2
 
 ## Specify a imagePullPolicy
 ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -100,4 +100,4 @@ cp-ksql-server:
 
 cp-zookeeper:
   ## If the Zookeeper Chart is disabled a URL and port are required to connect
-  url: ""  
+  url: ""
