@@ -3,7 +3,7 @@
 ## ------------------------------------------------------
 cp-zookeeper:
   enabled: true
-  servers: 3
+  servers: 1
   image: confluentinc/cp-zookeeper
   imageTag: 5.4.1
   ## Optionally specify an array of imagePullSecrets. Secrets must be manually created in the namespace.
@@ -38,7 +38,7 @@ cp-zookeeper:
 ## ------------------------------------------------------
 cp-kafka:
   enabled: true
-  brokers: 3
+  brokers: 1
   image: confluentinc/cp-enterprise-kafka
   imageTag: 5.4.1
   ## Optionally specify an array of imagePullSecrets. Secrets must be manually created in the namespace.
@@ -49,7 +49,7 @@ cp-kafka:
   persistence:
     enabled: true
     # storageClass: ""
-    size: 5Gi
+    size: 50Gi
     disksPerBroker: 1
   resources: {}
   ## If you do want to specify resources, uncomment the following lines, adjust them as necessary,
