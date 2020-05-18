@@ -11,6 +11,17 @@ helm repo add confluentinc https://confluentinc.github.io/cp-helm-charts/
 helm repo update
 ```
 
+## Intellipse Only
+To Install the helm use the following command:
+```
+helm install --name kafka --namespace "kafka" --set cp-zookeeper.enabled=false --set cp-zookeeper.url="zookeeper-headless.zookeeper.svc.cluster.local:2181" --wait .
+```
+
+To purge a deployment use the following command:
+```
+helm delete --purge kafka
+```
+
 ## Documentation
 
 The Confluent Helm Chart documentation is located at [docs.confluent.io](https://docs.confluent.io/current/quickstart/cp-helm-charts/docs/index.html).
