@@ -2,7 +2,7 @@
 ## Zookeeper
 ## ------------------------------------------------------
 cp-zookeeper:
-  enabled: true
+  enabled: false
   servers: 1
   image: confluentinc/cp-zookeeper
   imageTag: 5.5.0

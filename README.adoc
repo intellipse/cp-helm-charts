@@ -35,6 +35,12 @@ helm install confluentinc/cp-helm-charts --name my-confluent --version 0.5.0    
 <2> Update repo information 
 <3> Install Confluent Platform with release name «my-confluent» and version `0.5.0` 
 
+== Intellipse Installation
+[source,bash]
+---
+helm install --name kafka --namespace "kafka" --set cp-zookeeper.enabled=false --set cp-zookeeper.service-name="zookeeper-headless.zookeeper.svc.cluster.local:2181" --wait .
+---
+
 == Contributing
 
 We welcome any contributions:
