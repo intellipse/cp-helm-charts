@@ -42,12 +42,12 @@ spec:
               containerPort: {{ .Values.serviceHttpPort}}
               protocol: TCP
           resources:
-{{- toYaml .Values.resources | indent 12 }}
+{{ toYaml .Values.resources | indent 12 }}
           env:
             - name: CONTROL_CENTER_BOOTSTRAP_SERVERS
               value: {{ template "cp-control-center.kafka.bootstrapServers" . }}
             - name: CONTROL_CENTER_ZOOKEEPER_CONNECT
-              value: {{ template "cp-control-center.cp-zookeeper.service-name" . }}
+              value: "zookeeper-headless.zookeeper.svc.cluster.local:2181"
             - name: CONTROL_CENTER_CONNECT_CLUSTER
               value: {{ template "cp-control-center.cp-kafka-connect.service-name" . }}
             - name: CONTROL_CENTER_KSQL_URL

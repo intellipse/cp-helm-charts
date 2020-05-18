@@ -102,11 +102,31 @@ spec:
             - name: KAFKA_JMX_PORT
               value: "{{ .Values.jmx.port }}"
             {{- end }}
+        {{- if .Values.customEnv.CUSTOM_SCRIPT_PATH }}
+          command:
+            - /bin/bash
+            - -c
+            - |
+              /etc/confluent/docker/run &
+              $CUSTOM_SCRIPT_PATH
+              sleep infinity
+          {{- if .Values.livenessProbe }}
+          livenessProbe:
+{{ toYaml .Values.livenessProbe | trim | indent 12 }}
+          {{- end }}
+        {{- end }}
+          {{- if .Values.volumeMounts }}
+          volumeMounts:
+{{ toYaml .Values.volumeMounts | indent 10 }}
+          {{- end}}
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
 {{ toYaml .Values.imagePullSecrets | indent 8 }}
       {{- end }}
       volumes:
+      {{- if .Values.volumes }}
+{{ toYaml .Values.volumes | trim | indent 6 }}
+      {{- end}}
       {{- if .Values.prometheus.jmx.enabled }}
       - name: jmx-config
         configMap:
